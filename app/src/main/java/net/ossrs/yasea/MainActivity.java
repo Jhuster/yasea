@@ -515,17 +515,5 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Ca
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mPreviewRotation = 90;
-        } else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mPreviewRotation = 0;
-        }
-        stopEncoder();
-        mp4Muxer.stop();
-        btnRecord.setText("record");
-        mEncoder.setScreenOrientation(newConfig.orientation);
-        if (btnPublish.getText().toString().contentEquals("stop")) {
-            startEncoder();
-        }
     }
 }
